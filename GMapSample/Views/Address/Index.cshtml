@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps Sample</title>
+
+    @*Styles*@
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    @*Scripts*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    @*<script type="text/javascript" src="https://www.google.com/jsapi"></script>*@
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places"></script>
+    <script src="~/Scripts/app.js"></script>
+</head>
+
+<body>
+    <div id="search">
+        <label>Address: </label>
+        <input id="addr" type="text" placeholder="Enter a location" value="Denver, Colorado" />
+
+        <label>Radius (miles): </label>
+        <select id="radius">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>
+
+        <input type="button" value="Search" onclick="findAddress()" />
+
+        <div id="checkboxes">
+            <label>Show Places: </label>
+          
+            <input type="checkbox" id="Grocery" value="grocery_or_supermarket">Grocery
+            <input type="checkbox" id="School" value="school"> School
+            <input type="checkbox" id="DeptStore" value="department_store">Department Store
+        </div>
+    </div>
+    <div id="map"></div>
+    
+    <div id="right-panel">
+        <h2>Results</h2>
+        <ul id="places"></ul>
+        <button id="more">More...</button>
+        <button id="save">Save</button>
+        <div id="loading" style="display:none" ><img src="~/Images/loading.gif" />Saving. Please wait...</div>
+    </div>
+
+</body>
+
+</html>
